@@ -8,10 +8,9 @@ const app = new App({
   });
 
 // Message Listener 
-app.message('Testing Bot', async ({ message, say }) => {
-  await say(`Hello, <@${message.user}>`);
+app.message('BOOM', async ({ message, say }) => {
+  await say('hello');
 });
-
 
 // Listen for a slash command invocation
 app.command('/landscape', async ({ ack, body, client }) => {
@@ -98,7 +97,7 @@ app.view('view_1', async ({ ack, body, view, client }) => {
   // Message the user
   try {
     await client.chat.postMessage({
-      channel: channel,
+      channel: '#eng-heng-test',
       text: msg
     });
   }
@@ -114,13 +113,6 @@ async function startApp(){
 }
 startApp()
 
-// Sending message via the Web API
-// async function sendMessage(channel, message){
-//   await web.chat.postMessage({
-//     channel:channel,
-//     text:message,
-//   });
-// }
 
 
 
