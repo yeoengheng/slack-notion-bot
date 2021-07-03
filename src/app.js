@@ -1,11 +1,10 @@
 import pkg from '@slack/bolt';
-import { bot_token, slack_token, channel } from './constants.js';
 const { App } = pkg
 
 const app = new App({
-  signingSecret:slack_token,
-  token: bot_token
-})
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
+  token: process.env.SLACK_BOT_TOKEN,
+});
 
 // start App
 async function startApp(){

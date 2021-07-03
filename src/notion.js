@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client"
-// Credentials 
+console.log(process.env.NOTION_Key)
 const notion = new Client({ auth: process.env.NOTION_KEY })
 const databaseId = 'ca5141e1a6c7475daf88f36a4b6ad789'
 
