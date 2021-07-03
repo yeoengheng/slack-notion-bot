@@ -1,5 +1,8 @@
-import { Client } from "@notionhq/client"
-const notion = new Client({ auth: process.env.NOTION_KEY })
+import { Client, LogLevel } from "@notionhq/client"
+const notion = new Client({ 
+  auth: process.env.NOTION_KEY,
+  logLevel: LogLevel.DEBUG,
+})
 const databaseId = 'ca5141e1a6c7475daf88f36a4b6ad789'
 
 // Adding Item 
