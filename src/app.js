@@ -1,5 +1,5 @@
 import { addItem } from './notion.js'
-import {Boom} from './event-listener.js'
+import {BOOM} from './event-listener.js'
 import pkg from '@slack/bolt';
 const { App } = pkg
 
