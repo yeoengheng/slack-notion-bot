@@ -48,3 +48,18 @@ export async function addItem(text,content) {
     console.error(error.body)
   }
 }
+
+
+export const getDatabase = async ()=>{
+  try {
+    const result = await notion.request({
+      path: "databases",
+      method: "GET",
+      body: {
+      },
+    })
+    console.log(result.results)
+  } catch (error) {
+    console.error(error.body)
+  }
+}
