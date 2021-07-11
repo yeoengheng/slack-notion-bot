@@ -1,4 +1,5 @@
 import { addItem } from './notion.js'
+import {Boom} from './event-listener.js'
 import pkg from '@slack/bolt';
 const { App } = pkg
 
@@ -7,10 +8,6 @@ const app = new App({
     token: process.env.SLACK_BOT_TOKEN,
   });
 
-// Message Listener 
-app.message('BOOM', async ({ message, say }) => {
-  await say('hello');
-});
 
 // Listen for a slash command invocation
 app.command('/landscape', async ({ ack, body, client }) => {
@@ -78,7 +75,6 @@ app.command('/landscape', async ({ ack, body, client }) => {
     console.error(error);
   }
 });
-
 // Handle a view_submission event
 app.view('view_1', async ({ ack, body, view, client }) => {
   // Acknowledge the view_submission event
@@ -106,7 +102,10 @@ app.view('view_1', async ({ ack, body, view, client }) => {
   }
 
 });
+
+
 // start App
+
 async function startApp(){
   await app.start(process.env.PORT || 3000);
   console.log("app started")
