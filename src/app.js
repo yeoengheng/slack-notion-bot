@@ -1,4 +1,5 @@
 import { addItem } from './notion.js'
+import { getKanye } from './kanye.js';
 import pkg from '@slack/bolt';
 const { App } = pkg
 
@@ -41,12 +42,6 @@ app.event('app_home_opened', async ({ event, client }) => {
     console.error(error);
   }
 });
-
-// Message Listener 
-app.message('BOOM', async ({ message, say }) => {
-    await say('hello');
-  });
-
 // Listen for a slash command invocation
 app.command('/landscape', async ({ ack, body, client }) => {
   // Acknowledge the command request
@@ -142,6 +137,13 @@ app.view('view_1', async ({ ack, body, view, client }) => {
 });
 
 
+//Message Listener 
+app.message('What would Kanye say?', async ({ message, say }) => {
+  const results = await getKanye()
+  say(`Hello, <@${message.user}>, Kanye says `+ results);
+  });
+
+
 // start App
 
 async function startApp(){
@@ -149,9 +151,6 @@ async function startApp(){
   console.log("app started")
 }
 startApp()
-
-
-
 
 
 
