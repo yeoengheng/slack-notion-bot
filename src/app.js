@@ -161,13 +161,17 @@ app.event('member_joined_channel', async ({ event, client }) => {
   }
 });
 //Listen to when someone joins the slack workspace -> onboarding message
-app.event('member_joined_channel', async ({ event, client }) => {
+app.event('team_join', async ({ event, client }) => {
   try {
     const result = await client.chat.postMessage({
       // Use the user ID associated with the event
       channel: "#introductions",
       text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
     });
+    const dm = await client.conversations.open({
+      users: event.user,
+      text:`Hello <@${event.user}>! Hope you are excited about getting started. Here's a [link]() to the HeadsUp Onboarding Documents`
+    })
 
     console.log(result);
   }
@@ -175,6 +179,7 @@ app.event('member_joined_channel', async ({ event, client }) => {
     console.error(error);
   }
 });
+
 
 
 // start the App
