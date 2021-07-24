@@ -148,12 +148,10 @@ app.message('What would Kanye say?', async ({ message, say }) => {
 // Listen to new join in #introduction channel
 app.event('member_joined_channel', async ({ event, client }) => {
   try {
-    // Call views.publish with the built-in client
     const result = await client.chat.postMessage({
       // Use the user ID associated with the event
       channel: "#slack-app-testing",
-      text:"Welcome to the team, '@${event.user.id}>! Please introduce yourself by sharing a quick background and some fun facts!"
-
+      text:`Welcome to the team, <@${event.user.id}>! 🎉 Introduce yourself with some background and fun facts!`
     });
 
     console.log(result);
