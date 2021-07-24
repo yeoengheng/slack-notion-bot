@@ -168,11 +168,10 @@ app.event('team_join', async ({ event, client }) => {
       channel: "#introductions",
       text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
     });
-    const dm = await client.conversations.open({
-      users: event.user,
-      text:`Hello <@${event.user}>! Hope you are excited about getting started. Here's a [link]() to the HeadsUp Onboarding Documents`
-    })
-
+    // const dm = await client.conversations.open({
+    //   users: event.user,
+    //   text:`Hello <@${event.user}>! Hope you are excited about getting started. Here's a [link]() to the HeadsUp Onboarding Documents`
+    // })
     console.log(result);
   }
   catch (error) {
