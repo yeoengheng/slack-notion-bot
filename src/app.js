@@ -42,6 +42,8 @@ app.event('app_home_opened', async ({ event, client }) => {
     console.error(error);
   }
 });
+
+/////UPDATE DB 
 // Listen for a slash command invocation
 app.command('/landscape', async ({ ack, body, client }) => {
   // Acknowledge the command request
@@ -136,16 +138,32 @@ app.view('view_1', async ({ ack, body, view, client }) => {
 
 });
 
-
-//Message Listener 
+//Kanye Listener  
 app.message('What would Kanye say?', async ({ message, say }) => {
   const results = await getKanye()
   say(`Hello, <@${message.user}>, Kanye says `+ results);
   });
 
+// Onboarding 
+// Listen to new join in #introduction channel
+app.event('member_joined_channel', async ({ event, client }) => {
+  try {
+    // Call views.publish with the built-in client
+    const result = await client.chat.postMessage({
+      // Use the user ID associated with the event
+      channel: "#slack-app-testing",
+      text:"Welcome to the team, '@${event.user.id}>! Please introduce yourself by sharing a quick background and some fun facts!"
 
-// start App
+    });
 
+    console.log(result);
+  }
+  catch (error) {
+    console.error(error);
+  }
+});
+
+// start the App
 async function startApp(){
   await app.start(process.env.PORT || 3000);
   console.log("app started")
