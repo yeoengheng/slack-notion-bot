@@ -150,7 +150,7 @@ app.event('member_joined_channel', async ({ event, client }) => {
   try {
     const result = await client.chat.postMessage({
       // Use the user ID associated with the event
-      channel: "#slack-app-testing",
+      channel: "#introductions",
       text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
     });
 
