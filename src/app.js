@@ -160,6 +160,22 @@ app.event('member_joined_channel', async ({ event, client }) => {
     console.error(error);
   }
 });
+//Listen to when someone joins the slack workspace -> onboarding message
+app.event('member_joined_channel', async ({ event, client }) => {
+  try {
+    const result = await client.chat.postMessage({
+      // Use the user ID associated with the event
+      channel: "#introductions",
+      text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
+    });
+
+    console.log(result);
+  }
+  catch (error) {
+    console.error(error);
+  }
+});
+
 
 // start the App
 async function startApp(){

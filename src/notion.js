@@ -3,16 +3,16 @@ const notion = new Client({
   auth: process.env.NOTION_KEY,
   logLevel: LogLevel.DEBUG, 
 })
-const databaseId = 'ca5141e1a6c7475daf88f36a4b6ad789'
-
-// Adding Item 
+const landscapeId = 'ca5141e1a6c7475daf88f36a4b6ad789'
+const globalToDosId = '23caf49f5b8c488d824af9aa1a3bce1c'
+// Adding Items 
 export async function addItem(text,content) {
   try {
     await notion.request({
       path: "pages",
       method: "POST",
       body: {
-        parent: { database_id: databaseId,
+        parent: { database_id: landscapeId,
          },
         properties: {
           title: { 
@@ -44,22 +44,42 @@ export async function addItem(text,content) {
     })
     console.log("Success! Entry added.")
     return true
-  } catch (error) {
+  } 
+  catch (error) {
     console.error(error.body)
   }
 }
 
-
-export const getDatabase = async ()=>{
+// searching DB
+export const searchDB = async ()=>{
   try {
     const result = await notion.request({
-      path: "databases",
-      method: "GET",
-      body: {
-      },
+      path:'search',
+      method:'POST',
+      body:{
+        sort:{
+          direction: 'ascending',
+          timestamp:'last_edited_time'
+        }
+      }
     })
-    console.log(result.results)
-  } catch (error) {
+  console.log(result.results)
+  }
+  catch(error){
+    console.error(error.body)
+  }
+} 
+
+// Retrieving Items from Global Todos that belongs to you 
+export const getToDos = async () =>{
+  try {
+    const result = await notion.request({
+      method: 'GET',
+      path:`databases/${globalToDosId}`
+    })
+    console.log(result)
+  }
+  catch(error){
     console.error(error.body)
   }
 }
