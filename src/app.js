@@ -146,20 +146,20 @@ app.message('What would Kanye say?', async ({ message, say }) => {
 
 // Onboarding 
 // Listen to new join in #introduction channel
-app.event('member_joined_channel', async ({ event, client }) => {
-  try {
-    const result = await client.chat.postMessage({
-      // Use the user ID associated with the event
-      channel: "#introductions",
-      text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
-    });
+// app.event('member_joined_channel', async ({ event, client }) => {
+//   try {
+//     const result = await client.chat.postMessage({
+//       // Use the user ID associated with the event
+//       channel: "#introductions",
+//       text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
+//     });
 
-    console.log(result);
-  }
-  catch (error) {
-    console.error(error);
-  }
-});
+//     console.log(result);
+//   }
+//   catch (error) {
+//     console.error(error);
+//   }
+// });
 //Listen to when someone joins the slack workspace -> onboarding message
 app.event('team_join', async ({ event, client }) => {
   try {
@@ -178,8 +178,6 @@ app.event('team_join', async ({ event, client }) => {
     console.error(error);
   }
 });
-
-
 
 // start the App
 async function startApp(){
