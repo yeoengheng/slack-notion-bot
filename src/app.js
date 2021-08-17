@@ -16,24 +16,253 @@ app.event('app_home_opened', async ({ event, client }) => {
       // Use the user ID associated with the event
       user_id: event.user,
       view: {
-        "type": "home",
-        "blocks": [
-          {
-            "type": "section",
-            "text": {
-              "type": "mrkdwn",
-              "text": "*Welcome <@" + event.user + "> :house:*"
+        {
+          "type": "home",
+          "blocks": [
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "*HeadsUp Newsfeed :fire:*"
+              }
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "context",
+              "elements": [
+                {
+                  "type": "mrkdwn",
+                  "text": "1 min ago"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "*<www.airtable.com|Airtable>* :raised_hands: Met all *Convert to Startup* :mortar_board: Criteria\nActivation: :white_check_mark:\nChecked out Pricing Page: :white_check_mark:\nMid Size Company on Trial: :white_check_mark:\nTop Decision Maker: *<www.fakeurl.com/|Andrew Thompson>*\nBest Champion: *<www.fakeurl.com/|Denzel Sacramento>*\nLatest Interactions: `Pricing Page Visited`, `Files Uploaded x 7`, `Files Edited`,`Files Shared`,`Champion Login`"
+              },
+              "accessory": {
+                "type": "image",
+                "image_url": "https://www.podfeet.com/blog/wp-content/uploads/2018/05/airtable-logo.png",
+                "alt_text": "credit card"
+              }
+            },
+            {
+              "type": "actions",
+              "elements": [
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Chat on Intercom",
+                    "emoji": true
+                  },
+                  "style": "primary",
+                  "value": "approve"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Snooze",
+                    "emoji": true
+                  },
+                  "style": "danger",
+                  "value": "decline"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "View in Salesforce",
+                    "emoji": true
+                  },
+                  "value": "details"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "context",
+              "elements": [
+                {
+                  "type": "mrkdwn",
+                  "text": "10 mins ago"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "*<www.airtable.com|Amazon>* :tada: Met *Activation* Criteria for Convert to Startup:mortar_board:\nActivation: :white_check_mark:\nChecked out Pricing Page:\nMid Size Company on Trial: :white_check_mark:\nTop Decision Maker: *<www.fakeurl.com/|Andrew Thompson>*\nBest Champion: *<www.fakeurl.com/|Denzel Sacramento>*\nLatest Interactions: `File Uploaded x 24`, `Files Edited x 7`, `Files Deleted x 2`,`Dashboard Clicked`,`Dashboard Shared`"
+              },
+              "accessory": {
+                "type": "image",
+                "image_url": "https://www.seekpng.com/png/detail/122-1229893_10-amazon-gift-card-amazon-logo-square.png",
+                "alt_text": "credit card"
+              }
+            },
+            {
+              "type": "actions",
+              "elements": [
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Add to Cadence",
+                    "emoji": true
+                  },
+                  "style": "primary",
+                  "value": "approve"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Snooze",
+                    "emoji": true
+                  },
+                  "style": "danger",
+                  "value": "decline"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "View in Salesforce",
+                    "emoji": true
+                  },
+                  "value": "details"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "context",
+              "elements": [
+                {
+                  "type": "mrkdwn",
+                  "text": "55 mins ago"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "*<www.airtable.com|Uber>* :raised_hands: Met all *Upsell Growth Plan* :sunglasses: Criteria\nAbout to hit Growth Usage Limits: :white_check_mark:\nChecked out Pricing Page: :white_check_mark:\nEnterprise Companies on Startup plan: :white_check_mark:\nTop Decision Maker: *<www.fakeurl.com/|Samantha Aniston>*\nBest Champion: *<www.fakeurl.com/|Ben Davidson>*\nLatest Interactions: `Files Uploaded x 10`, `Files Shared x 2`, `Teammate Invited`,`New User Signed Up`,`User Onboarded`"
+              },
+              "accessory": {
+                "type": "image",
+                "image_url": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/022017/untitled-1_140.jpg?itok=1oBwROXU",
+                "alt_text": "credit card"
+              }
+            },
+            {
+              "type": "actions",
+              "elements": [
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Add to Cadence",
+                    "emoji": true
+                  },
+                  "style": "primary",
+                  "value": "approve"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Snooze",
+                    "emoji": true
+                  },
+                  "style": "danger",
+                  "value": "decline"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "View in Salesforce",
+                    "emoji": true
+                  },
+                  "value": "details"
+                }
+              ]
+            },
+            {
+              "type": "divider"
+            },
+            {
+              "type": "context",
+              "elements": [
+                {
+                  "type": "mrkdwn",
+                  "text": "1 hour ago"
+                }
+              ]
+            },
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "*<www.airtable.com|Mailchimp>* :octagonal_sign: Account at *Risk* \n Inactive: *7 days* :snail:\nTop Decision Maker: *<www.fakeurl.com/|Amy Jackson>*\nBest Champion: *<www.fakeurl.com/|Tim Ja>*\nLatest Interactions: `File Upload Error`, `Files Deleted`, `Champion Log Out`"
+              },
+              "accessory": {
+                "type": "image",
+                "image_url": "https://s3.amazonaws.com/www-inside-design/uploads/2018/10/mailchimp-sq.jpg",
+                "alt_text": "credit card"
+              }
+            },
+            {
+              "type": "actions",
+              "elements": [
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Schedule Call",
+                    "emoji": true
+                  },
+                  "style": "primary",
+                  "value": "approve"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Snooze",
+                    "emoji": true
+                  },
+                  "style": "danger",
+                  "value": "decline"
+                },
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "View in Salesforce",
+                    "emoji": true
+                  },
+                  "value": "details"
+                }
+              ]
+            },
+            {
+              "type": "divider"
             }
-          },
-          {
-            "type": "section",
-            "text": {
-              "type": "mrkdwn",
-              "text": "Store highlights lowlights here"
-            }
-          }
-        ]
-      }
+          ]
+        }
     });
 
     console.log(result);
