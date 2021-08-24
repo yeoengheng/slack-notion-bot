@@ -56,12 +56,12 @@ app.event('app_home_opened', async ({ event, client }) => {
             "elements": [
               {
                 "type": "button",
-                "action_id": "Intercom",
                 "text": {
                   "type": "plain_text",
                   "text": "Chat on Intercom",
                   "emoji": true
                 },
+                "action_id": "Intercom",
                 "style": "primary",
                 "value": "approve"
               },
@@ -70,7 +70,8 @@ app.event('app_home_opened', async ({ event, client }) => {
                 "text": {
                   "type": "plain_text",
                   "text": "Snooze",
-                  "emoji": true
+                  "emoji": true,
+                  action_id:"Snooze"
                 },
                 "style": "danger",
                 "value": "decline"
@@ -274,7 +275,7 @@ app.event('app_home_opened', async ({ event, client }) => {
   }
 });
 
-app.action('Intercom', async({ack, say}) =>{
+app.action('Snooze', async({ack, say}) =>{
   await ack();
   await say('Request Approved')
 })
