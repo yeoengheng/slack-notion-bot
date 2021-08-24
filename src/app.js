@@ -76,8 +76,9 @@ app.event('app_home_opened', async ({ event, client }) => {
                 "type": "button",
                 "text": {
                   "type": "plain_text",
-                  "text": "<www.google.com|View in Salesforce>",
-                  "emoji": true
+                  "text": "View in Salesforce",
+                  "emoji": true,
+                  "response_url":"www.google.com"
                 },
                 "value": "details"
               }
