@@ -9,6 +9,11 @@ const app = new App({
   });
 
 // Listen for users opening your App Home
+app.action('Snooze',async({ack})=>{
+  await ack();
+  await respond (www.google.com)
+})
+
 app.event('app_home_opened', async ({ event, client }) => {
   try {
     // Call views.publish with the built-in client
@@ -77,8 +82,7 @@ app.event('app_home_opened', async ({ event, client }) => {
                 "text": {
                   "type": "plain_text",
                   "text": "View in Salesforce",
-                  "emoji": true,
-                  "response_url":"www.google.com"
+                  "emoji": true
                 },
                 "value": "details"
               }
@@ -373,22 +377,6 @@ app.message('What would Kanye say?', async ({ message, say }) => {
   say(`Hello, <@${message.user}>, Kanye says `+ results);
   });
 
-// Onboarding 
-// Listen to new join in #introduction channel
-// app.event('member_joined_channel', async ({ event, client }) => {
-//   try {
-//     const result = await client.chat.postMessage({
-//       // Use the user ID associated with the event
-//       channel: "#introductions",
-//       text:`Welcome to the team, <@${event.user}>!🎉Introduce yourself with some background and fun facts!`
-//     });
-
-//     console.log(result);
-//   }
-//   catch (error) {
-//     console.error(error);
-//   }
-// });
 //Listen to when someone joins the slack workspace -> onboarding message
 app.event('team_join', async ({ event, client }) => {
   try {
