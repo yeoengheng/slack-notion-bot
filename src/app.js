@@ -8,12 +8,9 @@ const app = new App({
     token: process.env.SLACK_BOT_TOKEN,
   });
 
-// Listen for users opening your App Home
-app.action('Snooze',async({ack})=>{
-  await ack();
-  await respond (www.google.com)
-})
 
+
+// Listen for users opening your App Home
 app.event('app_home_opened', async ({ event, client }) => {
   try {
     // Call views.publish with the built-in client
@@ -59,6 +56,7 @@ app.event('app_home_opened', async ({ event, client }) => {
             "elements": [
               {
                 "type": "button",
+                "name": "Intercom",
                 "text": {
                   "type": "plain_text",
                   "text": "Chat on Intercom",
@@ -275,6 +273,11 @@ app.event('app_home_opened', async ({ event, client }) => {
     console.error(error);
   }
 });
+
+app.action('Intercom', async({ack, say}) =>{
+  await ack();
+  await say('Request Approved')
+})
 
 /////UPDATE DB 
 // Listen for a slash command invocation
