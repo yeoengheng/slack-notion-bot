@@ -56,7 +56,7 @@ app.event('app_home_opened', async ({ event, client }) => {
             "elements": [
               {
                 "type": "button",
-                "name": "Intercom",
+                "action_id": "Intercom",
                 "text": {
                   "type": "plain_text",
                   "text": "Chat on Intercom",
