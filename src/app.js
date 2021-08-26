@@ -70,8 +70,7 @@ app.event('app_home_opened', async ({ event, client }) => {
                 "text": {
                   "type": "plain_text",
                   "text": "Snooze",
-                  "emoji": true,
-                  action_id:"Snooze"
+                  "emoji": true
                 },
                 "style": "danger",
                 "value": "decline"
@@ -275,10 +274,6 @@ app.event('app_home_opened', async ({ event, client }) => {
   }
 });
 
-app.action('Snooze', async({ack, say}) =>{
-  await ack();
-  await say('Request Approved')
-})
 
 /////UPDATE DB 
 // Listen for a slash command invocation
