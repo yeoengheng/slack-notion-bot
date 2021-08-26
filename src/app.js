@@ -61,7 +61,7 @@ app.event('app_home_opened', async ({ event, client }) => {
                   "text": "Chat on Intercom",
                   "emoji": true
                 },
-                "action_id": "Intercom",
+
                 "style": "primary",
                 "value": "approve"
               },
